@@ -2,10 +2,10 @@
 #include <Wire.h>
 
 // Pins for reciever channels
-#define CHANNEL 0
-#define CHANNEL 1
-#define CHANNEL 2
-#define CHANNEL 3
+#define CHANNEL0 0
+#define CHANNEL1 1
+#define CHANNEL2 2
+#define CHANNEL3 3
 
 // MPU Address
 #define MPU_ADDRESS 0x68
@@ -51,6 +51,12 @@ void setup() {
   pinMode(motor3, OUTPUT); 
   pinMode(motor4, OUTPUT);  
 
+  pinMode(CHANNEL0, INPUT);
+  pinMode(CHANNEL1, INPUT);
+  pinMode(CHANNEL2, INPUT);
+  pinMode(CHANNEL3, INPUT);
+
+
   digitalWrite(led, LOW);
 
 }
@@ -59,6 +65,9 @@ void loop() {
 
 }
 
+int getJoyStickValue(int pin){
+  return pulseIn(pin, HIGH);
+}
 void calibrateGyro(){
   
 }
